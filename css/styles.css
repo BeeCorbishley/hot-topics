@@ -1,0 +1,284 @@
+/* ------------------ COLOR PALETTE (ANALOGOUS) ------------------
+
+Warm Coral:            #F4A261
+Golden Amber:          #E9C46A
+Muted Sand:            #E6D5C3
+Deep Brown:            #5E4B3C
+Accent Dark Brown:     #3E2F26
+
+/* ------------------ RESET ------------------ */
+
+:root {
+  --coral: #F4A261;
+  --amber: #E9C46A;
+  --sand: #E6D5C3;
+  --brown: #5E4B3C;
+  --dark-brown: #3E2F26;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  background-color: var(--sand);
+  color: var(--brown);
+  text-align: center; /* mobile centered */
+}
+
+h1, h2 {
+  font-family: 'Merriweather', serif;
+  margin: 0;
+}
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+/* ------------------ LAYOUT ------------------ */
+
+.container,
+.nav-container,
+main {
+  width: 100%;
+  max-width: 35rem;  
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ------------------ HEADER ------------------ */
+
+header {
+  background-color: var(--sand);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* ------------------ NAV (MOBILE FIRST) ------------------ */
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* full width */
+}
+
+nav {
+  width: 100%;
+  display: block; /* important: no flex on mobile */
+}
+
+nav a {
+  display: block;
+  width: 100%;
+  background-color: var(--dark-brown);
+  color: var(--sand);
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: var(--dark-brown);
+}
+
+/* ------------------ MASTHEAD ------------------ */
+
+.masthead {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+              url('../img/header.jpeg') center/cover no-repeat;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.masthead h1 {
+  background-color: rgba(94, 75, 60, 0.5); /* subtle brown overlay for readability */
+  font-size: 2rem;
+}
+
+/* ------------------ ARTICLES ------------------ */
+
+.article {
+  background: white;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.article h2 {
+  margin-bottom: 1rem;
+}
+
+.article-content {
+  display: block;
+}
+
+/* MOBILE: image stacked */
+.article-content figure {
+  float: none;
+  width: (100% + 2rem); /* full width + padding compensation */
+  margin: 0 0 1rem 0;
+}
+
+.article-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.article-content p {
+  margin-top: 0;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  color: var(--dark-brown);
+  margin-top: 0.3rem;
+}
+
+/* clearfix */
+.article-content::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ------------------ PORTFOLIO ------------------ */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* ------------------ FOOTER ------------------ */
+
+footer {
+  background-color: var(--dark-brown);
+  color: white;
+}
+
+footer .social {
+  margin: 1rem 0;
+}
+
+footer span {
+  margin: 0 0.5rem;
+}
+
+/* ------------------ TABLET ------------------ */
+
+@media (min-width: 35rem) and (max-width: 79.99rem) {
+
+  body {
+    font-size: 1rem;
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  nav a {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* IMAGE WRAP */
+  .article-content figure {
+    float: left;
+    width: 40%; 
+    margin: 0 1.5rem 1rem 0;
+  }
+
+  /* PORTFOLIO */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  } 
+  
+  .container,
+  .nav-container,
+  main {
+    margin: 0 auto; 
+  }
+}
+
+
+/* ------------------ DESKTOP ------------------ */
+
+@media (min-width: 80rem) {
+
+   body {
+    font-size: 1.25rem;
+    text-align: left;
+  }
+
+  /* layout alignment */
+  .container,
+  .nav-container,
+  main {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* NAV left aligned */
+  nav {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  nav a {
+    flex: 1;
+    margin: 0;
+  }
+
+  /* IMAGE WRAP (refined spacing) */
+  .article-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .article-content figure {
+    float: left;
+    width: 40%;
+    margin: 0;
+  }
+
+  /* PORTFOLIO */
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
